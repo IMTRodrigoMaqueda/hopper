@@ -1,9 +1,21 @@
 <template>
-  <div class="todo">
-    <Primero /> -----------------------------------------------------------------------------------------------------------------------------
-    <Segundo /> -----------------------------------------------------------------------------------------------------------------------------
-    <Tercero /> -----------------------------------------------------------------------------------------------------------------------------
-  </div>
+  <v-conteiner>
+    <v-row>
+      <v-col>
+        <v-card outlined>
+          <Primero />
+        </v-card>
+        <v-card outlined>
+          <Tercero />
+        </v-card>
+      </v-col>
+      <v-col align-self="center">
+        <v-card outlined>
+          <Segundo />
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-conteiner>
 </template>
 
 <script>
@@ -16,7 +28,7 @@ export default {
   components: {
     Primero,
     Segundo,
-    Tercero,
+    Tercero
   }
 };
 </script>

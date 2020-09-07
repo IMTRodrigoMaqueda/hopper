@@ -1,7 +1,7 @@
 <template>
-  <div class="tercero">
+  <v-conteiner>
     <Tercero />
-  </div>
+  </v-conteiner>
 </template>
 
 <script>
