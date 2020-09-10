@@ -3,7 +3,7 @@
     <!-- TITULO -->
     <h1 align="center">Listas</h1>
     <v-row align="center" justify="space-around">
-      <v-card>
+      <v-card color="gray" dark>
         <v-toolbar color="black" dark>
           <!-- INPUT -->
           <v-text-field
@@ -18,7 +18,7 @@
           <v-spacer></v-spacer>
 
           <!-- BOTON AGREGAR -->
-          <v-btn icon @click="agregar()">
+          <v-btn icon @click="agregar(item)">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
 
@@ -28,7 +28,8 @@
           </v-btn>
         </v-toolbar>
 
-        <v-list>
+        <!-- IMPRIME LA LISTA -->
+        <v-list disabled>
           <v-list-item-group v-model="item" color="primary">
             <v-list-item v-for="elemento in lista" v-bind:key="elemento">
               <v-list-item-content>
@@ -36,6 +37,13 @@
                 <v-divider></v-divider>
               </v-list-item-content>
             </v-list-item>
+          </v-list-item-group>
+        </v-list>
+
+        <!-- IMPRIME LA LISTA CON CHIP-->
+        <v-list disabled>
+          <v-list-item-group v-model="item" color="primary">
+            <v-chip v-for="elemento in lista" v-bind:key="elemento" close>{{elemento}}</v-chip>
           </v-list-item-group>
         </v-list>
       </v-card>
@@ -52,8 +60,10 @@ export default {
     };
   },
   methods: {
-    agregar() {
-      this.lista.push(this.item), (this.item = "");
+    agregar(item) {
+      if (item != "") {
+        this.lista.push(this.item), (this.item = "");
+      }
     },
     reset() {
       this.lista.splice(0, this.lista.length);
